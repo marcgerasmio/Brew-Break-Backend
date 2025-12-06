@@ -24,20 +24,20 @@ class UserRequest extends FormRequest
         if (request()->routeIs('user.login')){
             return [
                 'email'=>'required|string|max:255',
-                'password'=>'required|min:5',       
+                'password'=>'required|min:5',
             ];
-        
+
         }
         else if (request()->routeIs('user.register')) {
             return [
                 'name'=>'required|string|max:255',
                 'email'=>'required|string|max:255',
-                'password'=>'required|min:5',     
+                'password'=>'required|min:5',
             ];
-        }  
+        }
         return [
             'name'=>'required|string|max:255',
-            'password'=>'required|min:5',       
+            'password'=>'required|min:5',
         ];
     }
 }

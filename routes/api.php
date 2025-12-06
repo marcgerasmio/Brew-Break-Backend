@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -8,10 +8,8 @@ use App\Http\Controllers\UserController;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-
 Route::controller(UserController::class)->group(function (){
-    Route::post('/login',         'login')->name('user.login');
-    Route::post('/register',         'register')->name('user.register');
-
-}
-);
+    Route::post('/login','login')->name('user.login');
+    Route::post('/register','register')->name('user.register');
+    Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logout']);
+});
