@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attendance extends Model
+class Notification extends Model
 {
     use HasFactory;
-    protected $table = 'attendance';
+    protected $table = 'notification';
     /**
      * The primary key associated with the table.
      *
@@ -22,9 +22,9 @@ class Attendance extends Model
      * @var array
      */
     protected $fillable = [
-            'date',
-            'check_in',
-            'check_out',
+            'status',
+            'notification_type',
+            'text',
             'user_id',
     
     

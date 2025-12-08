@@ -41,4 +41,14 @@ class UserController extends Controller
             'message' => 'Logged out successfully'
         ]);
     }
+
+    public function showEmployee()
+{
+    $user = User::where('role', 'staff')
+        ->get();
+
+    return $user;
+}
+
+
 }

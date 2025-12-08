@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AttendanceRequest extends FormRequest
+class LeaveRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,20 +20,18 @@ class AttendanceRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-     {
-        if (request()->routeIs('attendance.checkin')){
+   {
+        if (request()->routeIs('leave.store')){
             return [
                 'user_id'=>'required|string|max:255',
-                'check_in'=>'required|string|max:255',  
-                'date'=>'required',     
+                'leave_type'=>'required|string|max:255',
+                'start_date'=>'required',
+                'end_date'=>'required',
+                'reason'=>'required|string|max:255',  
+                'status'=>'required',     
             ];
         
         }
-        else if (request()->routeIs('attendance.checkout')) {
-            return [
-                'check_out'=>'required',    
-            ];
-        }  
         return [
             'date'=>'required|string|max:255',
             'user_id'=>'required|string|max:255',       

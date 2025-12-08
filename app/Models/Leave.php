@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Attendance extends Model
+class Leave extends Model
 {
     use HasFactory;
-    protected $table = 'attendance';
+    protected $table = 'leave';
     /**
      * The primary key associated with the table.
      *
@@ -22,9 +22,11 @@ class Attendance extends Model
      * @var array
      */
     protected $fillable = [
-            'date',
-            'check_in',
-            'check_out',
+            'start_date',
+            'end_date',
+            'leave_type',
+            'reason',
+            'status',
             'user_id',
     
     
