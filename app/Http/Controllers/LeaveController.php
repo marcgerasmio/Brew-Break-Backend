@@ -38,5 +38,19 @@ public function pendingLeave()
     return $leave;
 }
 
+    public function update(LeaveRequest $request, $id)
+{
+    // Validate the request
+    $validated = $request->validated();
+
+    // Find the existing attendance record
+    $leave = Leave::findOrFail($id);
+
+    // Update the record with validated data
+    $leave->update($validated);
+
+    // Return the updated record
+    return $leave;
+}
 
 }

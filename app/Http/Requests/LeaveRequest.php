@@ -32,6 +32,11 @@ class LeaveRequest extends FormRequest
             ];
         
         }
+          else if (request()->routeIs('leave.update')) {
+            return [
+                'status'=>'required',    
+            ];
+        }  
         return [
             'date'=>'required|string|max:255',
             'user_id'=>'required|string|max:255',       
