@@ -26,8 +26,8 @@ private function generateMessage(string $type, string $status): string
 {
     return match ($type) {
         'attendance' => match ($status) {
-            'check_in' => 'Clocked In.',
-            'check_out' => 'Clocked Out.',
+            'check_in' => 'Time In.',
+            'check_out' => 'Time Out.',
             default => 'Attendance Updated.',
         },
 

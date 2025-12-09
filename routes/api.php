@@ -32,8 +32,6 @@ Route::controller(LeaveController::class)->group(function (){
     Route::get('/leave', 'index')->name('leave.show');
     Route::get('/leave/employee/{id}', 'byEmployeeLeave')->name('leave.byemployee');
     Route::get('/leave/pending', 'pendingLeave')->name('leave.pending');
-
-
 });
 
 Route::controller(NotificationController::class)->group(function (){

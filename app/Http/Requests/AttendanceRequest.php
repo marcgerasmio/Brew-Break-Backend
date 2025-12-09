@@ -23,20 +23,23 @@ class AttendanceRequest extends FormRequest
      {
         if (request()->routeIs('attendance.checkin')){
             return [
-                'user_id'=>'required|string|max:255',
-                'check_in'=>'required|string|max:255',  
-                'date'=>'required',     
+                'user_id' => 'required|integer|exists:users,id',
+                'check_in' => 'required|date_format:H:i:s',
+                'date' => 'required|date_format:Y-m-d',
+                // 'user_id'=>'required|string|max:255',
+                // 'check_in'=>'required|string|max:255',
+                // 'date'=>'required',
             ];
-        
+
         }
         else if (request()->routeIs('attendance.checkout')) {
             return [
-                'check_out'=>'required',    
+                'check_out'=>'required',
             ];
-        }  
+        }
         return [
             'date'=>'required|string|max:255',
-            'user_id'=>'required|string|max:255',       
+            'user_id'=>'required|string|max:255',
         ];
     }
 }

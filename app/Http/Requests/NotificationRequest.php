@@ -23,15 +23,16 @@ class NotificationRequest extends FormRequest
       {
         if (request()->routeIs('notification.store')){
             return [
-                'user_id'=>'required|string|max:255',
+                'user_id'=>'required|integer|exists:users,id',
+                // 'user_id'=>'required|string|max:255',
                 'status'=>'required|string|max:255',
                 'notification_type'=>'required' ,
             ];
-        
+
         }
         return [
             'date'=>'required|string|max:255',
-            'user_id'=>'required|string|max:255',       
+            'user_id'=>'required|string|max:255',
         ];
     }
 }
