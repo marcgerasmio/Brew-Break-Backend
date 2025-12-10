@@ -41,14 +41,15 @@ private function generateMessage(string $type, string $status): string
     };
 }
 
-   public function index()
-    {
-        return Notification::all();
-    }
+  public function index()
+{
+    return Notification::with('user:id,name')->get();
+}
 
     public function byEmployeeNotification(string $id)
     {
         $notification = Notification::where('user_id', $id)
+          ->with('user:id,name')
             ->get();
 
         return $notification;
